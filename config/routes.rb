@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # get 'users/:id'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
   resources :users, only: [:show, :edit, :update, :destroy]
