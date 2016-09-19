@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PairBnb</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../../assets/font-awesome/css/font-awesome.min.css">
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default clearfix" data-spy="affix" data-offset-top="200">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="/"><span class="glyphicon glyphicon-home"></span>  PairBnB</a>
+        
+      </div>
+      <% if signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Sign Out", sign_out_path, method: :delete %>
+          </li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Sign Up", sign_up_path %>
+          </li>
+          <li>
+            <%= link_to "Sign In", sign_in_path %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </nav>
 
-<%= yield %>
 
+
+
+<% flash.each do |key, value| %>
+  <div id="flash" class="container">
+    <%= value %>
+  </div>
+<% end %>
+
+
+  <%= yield %>
 </body>
 </html>

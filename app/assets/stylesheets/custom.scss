@@ -1,0 +1,47 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #EDEFF0;
+}
+
+.form-control {
+  width: 30%;
+}
+
+#flash {
+  background: white;
+  padding: 1em;
+  border-radius: .5em;
+}
+
+.affix {
+      top: 0;
+      width: 100%;
+  }
+
+.navbar {
+  .container {
+    .navbar-brand {
+      a:hover, a:visited, a:link, a:active
+        {
+            text-decoration: none;
+        }
+    }
+  }
+}
+
+.jumbotron {
+  width: 670px;
+  h1 {
+    position: top;
+  }
+}
+
+#jumbowelcome {
+  border-radius: 15px;
+  background: rgba(192,192,192,0.4);
+  width: 100%;
+}
