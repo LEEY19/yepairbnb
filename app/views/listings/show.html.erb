@@ -1,0 +1,12 @@
+<div class="listing_content container">
+  <h1><%= @listing.title %></h1>
+  <p><%= @listing.description %></p>
+  <p><%= @listing.address %></p>
+  <p><%= @listing.price %></p>
+  <p><%= @listing.max_guests %></p>
+
+  <%= link_to "Edit", edit_listing_path, class: "btn btn-default" %>
+  <%= link_to "Delete", listing_path, method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-default" %>
+
+
+</div>

@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin box-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+  box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
 
 body {
   font-family: 'Lato', sans-serif;
@@ -11,7 +16,7 @@ body {
   width: 30%;
 }
 
-#flash {
+.alert {
   background: white;
   padding: 1em;
   border-radius: .5em;
@@ -45,3 +50,57 @@ body {
   background: rgba(192,192,192,0.4);
   width: 100%;
 }
+
+.listing {
+  text-align: center;
+  background: white;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  @include box-shadow;
+  .image_wrapper {
+    padding: 20px;
+    max-width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+  }
+  img {
+    width: 100%;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    &:hover {
+      transform: scale(1.075);
+    }
+  }
+  h2 {
+    font-weight: bolder;
+    padding: 15px 5%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+    a {
+      color: black;
+    }
+  }
+}
+
+.searchbar {
+  margin-top: 10px;
+}
+
+.form-control .search {
+  margin-left: 100px;
+  overflow: hidden;
+  width: 600px;
+}
+
+.search {
+  position: relative;
+  margin-top: 7px;
+  display: inline;
+}
+
+
+

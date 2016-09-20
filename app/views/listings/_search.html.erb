@@ -1,0 +1,9 @@
+
+
+<%= form_tag listings_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: "What kind of accommodation you are looking for?", class: 'form-control search' %>
+    <%= submit_tag "Search", :name => nil, class: "search" %>
+  </p>
+<% end %>
+

@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-default clearfix" data-spy="affix" data-offset-top="200">
+  <nav class="navbar navbar-default clearfix" data-offset-top="10">
     <div class="container">
       <div class="navbar-brand">
         <a href="/"><span class="glyphicon glyphicon-home"></span>  PairBnB</a>
@@ -19,9 +19,20 @@
       <% if signed_in? %>
         <ul class="nav navbar-nav navbar-right">
           <li>
+            <%= link_to "Create New Listing", new_listing_path %>
+          </li>
+          <li>
+            <%= link_to "View Listings", listings_path %>
+          </li>
+          <li>
             <%= link_to "Sign Out", sign_out_path, method: :delete %>
           </li>
         </ul>
+
+
+        <%= render partial: '/listings/search', object: form_tag %>
+
+
       <% else %>
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -39,8 +50,10 @@
 
 
 <% flash.each do |key, value| %>
-  <div id="flash" class="container">
-    <%= value %>
+  <div class="container">
+    <div class="alert">
+      <%= value %>
+    </div>
   </div>
 <% end %>
 
