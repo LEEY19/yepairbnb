@@ -1,11 +1,21 @@
 class ListingsController < ApplicationController
-  before_action :find_listing, except: [:search, :index, :new]
+  before_action :find_listing, except: [:search, :index, :new, :create]
 
   def index
-    @listings = Listing.all.order('created_at DESC')
-    @listings = @listings.search(params[:search]) if params[:search].present?
+  
     if params[:search].present?
-      flash[:notice] = "Here are the PairBnB listings relevant to your search:"
+      params[:pet_presence_list] = "No" if !params[:pet_presence_list].present?
+      @listings = Listing.search(params[:search], params[:pet_presence_list]) 
+    else
+      @listings = Listing.all.order('created_at DESC')
+    end
+
+    if params[:search].present?
+      if @listings.present?
+        flash[:notice] = "Here are the PairBnB listings relevant to your filter"
+      else
+        flash[:notice] = "There are no PairBnB listings relevant to your filter, please refine your filtering"
+      end
     end
   end
 
@@ -17,9 +27,11 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = current_user.listings.build(listing_params)
 
+    @listing = current_user.listings.build(listing_params)
     if @listing.save
+      @listing.keyword_description_list.add(listing_params[:keyword_description_list])
+      @listing.pet_presence_list.add(listing_params[:pet_presence_list])
       redirect_to @listing, notice: "Your listing is posted!"
     else
       render 'new'
@@ -42,7 +54,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :tags, :address, :max_guests, :price)
+    params.require(:listing).permit(:title, :description, :tags, :address, :max_guests, :price, :keyword_description_list, :pet_presence_list)
   end
 
   def find_listing

@@ -26,6 +26,7 @@ gem 'omniauth-facebook'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -46,6 +47,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

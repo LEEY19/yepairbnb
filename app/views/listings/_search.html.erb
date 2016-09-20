@@ -3,6 +3,9 @@
 <%= form_tag listings_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search], placeholder: "What kind of accommodation you are looking for?", class: 'form-control search' %>
+    <label id="petlabel" for="pet">Are you fine with pets in the listing?</label>
+
+    <%= check_box_tag 'pet_presence_list', 'Yes', true, id: 'pet' %>
     <%= submit_tag "Search", :name => nil, class: "search" %>
   </p>
 <% end %>
