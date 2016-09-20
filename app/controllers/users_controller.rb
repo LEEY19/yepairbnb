@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
 
   def create
+    byebug
     @user = User.new(user_params)
 
     if @user.save
@@ -15,7 +16,7 @@ class UsersController < Clearance::UsersController
   private
 
   def user_params   
-    params.require(:user).permit(:email, :password, :first_name, :last_name, :birthday)
+    params.require(:user).permit(:email, :password, :first_name, :last_name, :birthday, :avatar)
   end
 
 

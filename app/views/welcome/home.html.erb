@@ -3,6 +3,7 @@
 <div class="jumbotron">
   <div id="jumbowelcome" class="container">
     <h1 style="color: black;">Welcome <%= "#{current_user.first_name} #{current_user.last_name}" %></h1>
+    <%= image_tag(current_user.avatar.url) %>
   </div>
   <br>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
