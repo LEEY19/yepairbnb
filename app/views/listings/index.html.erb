@@ -6,7 +6,7 @@
         <div class="listing">
           <div class="image_wrapper">
             <%= link_to listing do %>
-              <img src="https://s-media-cache-ak0.pinimg.com/564x/aa/15/15/aa151578bd419d48b7a07c5899212ce9.jpg">
+              <%= image_tag(listing.listing_photos.sample.url(:indexdisplay)) %>
             <% end %>
           </div>
           <h2><%= link_to listing.title, listing %></h2>

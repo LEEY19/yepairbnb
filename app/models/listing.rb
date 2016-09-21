@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
+  mount_uploaders :listing_photos, ListingPhotosUploader
   belongs_to :user
   acts_as_taggable_on :keyword_description, :pet_presence
 

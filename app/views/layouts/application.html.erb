@@ -6,7 +6,6 @@
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="../../assets/font-awesome/css/font-awesome.min.css">
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -20,6 +19,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <button class='btn btn-default' id="filterlisting">Filter Listing</button>
+          </li>
+          <li>
+            <%= link_to "Profile", current_user %>
           </li>
           <li>
             <%= link_to "Create New Listing", new_listing_path %>
