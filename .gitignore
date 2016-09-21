@@ -18,3 +18,6 @@
 
 #ignore application.yml
 /config/application.yml
+
+#ignore cloudinary.yml
+/config/cloudinary.yml

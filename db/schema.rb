@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921021743) do
+ActiveRecord::Schema.define(version: 20160921174101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20160921021743) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "listingphotos", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listings", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -32,9 +39,8 @@ ActiveRecord::Schema.define(version: 20160921021743) do
     t.integer  "max_guests"
     t.integer  "price"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.json     "listing_photos"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree

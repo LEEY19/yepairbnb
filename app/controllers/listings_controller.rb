@@ -27,9 +27,9 @@ class ListingsController < ApplicationController
   end
 
   def create
-
     @listing = current_user.listings.build(listing_params)
     if @listing.save
+      store_photos
       @listing.keyword_description_list.add(listing_params[:keyword_description_list])
       @listing.pet_presence_list.add(listing_params[:pet_presence_list])
       redirect_to @listing, notice: "Your listing is posted!"
@@ -54,11 +54,16 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :tags, :address, :max_guests, :price, :keyword_description_list, :pet_presence_list, {listing_photos: []})
+    params.require(:listing).permit(:title, :description, :tags, :address, :max_guests, :price, :keyword_description_list, :pet_presence_list)
   end
 
   def find_listing
     @listing = Listing.find(params[:id])
+  end
+
+  def store_photos
+    photos = params[:listing][:listing_photos]
+    photos.each{|photo| @listing.listingphotos.create(image: photo)} if photos
   end
 
 end

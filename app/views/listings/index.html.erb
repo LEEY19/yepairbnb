@@ -2,11 +2,13 @@
 <% @listings.each_slice(3) do |listings| %>
   <div class="row">
     <% listings.each do |listing| %>
+
       <div class="col-md-4">
         <div class="listing">
           <div class="image_wrapper">
             <%= link_to listing do %>
-              <%= image_tag(listing.listing_photos.sample.url(:indexdisplay)) %>
+
+              <%= image_tag(listing.listingphotos.sample.image.url(:indexdisplay)) %>
             <% end %>
           </div>
           <h2><%= link_to listing.title, listing %></h2>

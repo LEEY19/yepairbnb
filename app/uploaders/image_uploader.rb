@@ -1,11 +1,11 @@
-class ListingPhotosUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -14,6 +14,13 @@ class ListingPhotosUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  version :resized do
+    process :resize_to_fit => [450, 10000]
+  end
+
+  version :indexdisplay do
+    process :resize_to_fill => [450, 350]
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -29,14 +36,10 @@ class ListingPhotosUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  version :resized do
-
-    process :resize_to_fit => [450, 10000]
-  end
-
-  version :indexdisplay do
-    process :resize_to_fill => [450, 350]
-  end
+  # Create different versions of your uploaded files:
+  # version :thumb do
+  #   process resize_to_fit: [50, 50]
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

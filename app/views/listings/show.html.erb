@@ -6,13 +6,13 @@
 
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <%= image_tag(@listing.listing_photos[0].url(:indexdisplay)) %>
+        <%= image_tag(@listing.listingphotos[0].image.url(:indexdisplay)) %>
       </div>
       <div class="item">
-        <%= image_tag(@listing.listing_photos[1].url(:indexdisplay)) %>
+        <%= image_tag(@listing.listingphotos[1].image.url(:indexdisplay)) %>
       </div>
       <div class="item">
-        <%= image_tag(@listing.listing_photos[2].url(:indexdisplay)) %>
+        <%= image_tag(@listing.listingphotos[2].image.url(:indexdisplay)) %>
       </div>
     </div>
 
