@@ -52,6 +52,7 @@ gem 'carrierwave', '>= 1.0.0.beta', '< 2.0', github: 'carrierwaveuploader/carrie
 gem "mini_magick"
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'cloudinary'
+gem 'gon', '~> 6.1'
 
 
 

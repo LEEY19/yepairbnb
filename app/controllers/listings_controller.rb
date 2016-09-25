@@ -24,6 +24,20 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @reservations = []
+    @startDates = []
+    @endDates = []
+    @listing.reservations.each do |reservation|
+      @reservations << [*(reservation.start..reservation.end)]
+      @startDates << reservation.start
+      @endDates << reservation.end
+    end
+    @reservations = @reservations.flatten
+    gon.reservations = @reservations
+    gon.startDates = @startDates.sort 
+    gon.endDates = @endDates.sort.reverse
+    @reservation = @listing.reservations.build
+
   end
 
   def create

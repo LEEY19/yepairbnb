@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :listings 
+  resources :reservations
 
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
