@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
     @reservation = @listing.reservations.new(start: Date.parse(reservation_params[:start]), end: Date.parse(reservation_params[:end]))
     if @reservation.save
       @reservation.update(user_id: current_user.id)
+      ReservationMailer.booking_email(@reservation.user, @listing.user, @reservation.id).deliver_now
       redirect_to @listing, notice: "Your booking is made!"
     else
       render 'new'

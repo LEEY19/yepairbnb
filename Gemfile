@@ -53,6 +53,7 @@ gem "mini_magick"
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'cloudinary'
 gem 'gon', '~> 6.1'
+gem 'sidekiq', '~> 4.2', '>= 4.2.1'
 
 
 
