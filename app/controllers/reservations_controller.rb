@@ -11,13 +11,13 @@ class ReservationsController < ApplicationController
 
   def create
     @listing = Listing.find(params[:listing_id])
-    @reservation = @listing.reservations.new(start: Date.parse(reservation_params[:start]), end: Date.parse(reservation_params[:end]))
-    if @reservation.save
-      @reservation.update(user_id: current_user.id)
-
-      ReservationJob.perform_later(@reservation.user, @listing.user, @reservation.id)
+    @reservation = @listing.reservations.new(user_id: current_user.id, start: Date.parse(reservation_params[:start]), end: Date.parse(reservation_params[:end]))
+    @charge = (@reservation.start..@reservation.end).count * @listing.price
+    if @reservation.valid?
+      new_hash = reservation_params.merge!(listing_id: @listing.id, charge: @charge)
+      redirect_to new_transaction_path(new_hash)
       
-      redirect_to @listing, notice: "Your booking is made!"
+      # redirect_to @listing, notice: "Your booking is made!"
     else
       render 'new'
     end
