@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'transactions/new'
+
   get 'welcome/home'
   # get 'users/:id'
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :listings 
   resources :reservations
-
+  resources :transactions, only: [:new, :create]
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"

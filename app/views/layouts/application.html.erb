@@ -5,6 +5,10 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="../../assets/font-awesome/css/font-awesome.min.css">
+  <%= include_gon %>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 
   <%= csrf_meta_tags %>
 </head>
