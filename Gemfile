@@ -75,6 +75,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'bonsai-elasticsearch-rails'
   gem 'puma'
 end
 
