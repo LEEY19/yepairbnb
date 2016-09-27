@@ -7,8 +7,13 @@
   <link rel="stylesheet" href="../../assets/font-awesome/css/font-awesome.min.css">
   <%= include_gon %>
   <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true  %>
   <%= javascript_include_tag "vendor/modernizr" %>
+
   <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+  <!--   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+  <script type="text/javascript" src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
 
   <%= csrf_meta_tags %>
 </head>
@@ -70,5 +75,5 @@
 <%= Gon::Base.render_data({}) %>
   <%= yield %>
 </body>
-<%= javascript_include_tag "application", "data-turbolinks-track" => true  %>
+
 </html>
