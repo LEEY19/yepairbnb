@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-social
+ *= require bootstrap-typeahead-rails
  *= require font-awesome
  *= require jquery-ui
  */

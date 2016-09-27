@@ -1,6 +1,5 @@
 class SearchController < ApplicationController
   def index
-
     if params[:query].present?
       @listings = Listing.search(params[:query], suggest: true)
     else
@@ -9,7 +8,6 @@ class SearchController < ApplicationController
   end
 
   def autocomplete
-
     render json: Listing.search(params[:query], limit: 10).map {|listing| {title: listing.title}}
   end
 

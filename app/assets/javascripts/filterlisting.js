@@ -1,3 +1,5 @@
+$( document ).ready(function() {
+
 $("#filterlistingdiv").hide();
 
 $( "#filterlisting" ).click(function() {
@@ -95,7 +97,7 @@ function DisableSpecificDates(date) {
     return [disableddates.indexOf(string) == -1];
   }
   
-
+});
 // function checkUnavailable(date, unavailableDates) {
 
 //   // break the selected date to month, year and day to prepare MySQL format       
