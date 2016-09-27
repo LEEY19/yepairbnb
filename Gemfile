@@ -55,7 +55,8 @@ gem 'cloudinary'
 gem 'gon', '~> 6.1'
 gem 'sidekiq', '~> 4.2', '>= 4.2.1'
 gem 'braintree', '~> 2.66'
-
+gem 'searchkick'
+gem 'twitter-typeahead-rails', '~> 0.11.1'
 
 
 group :development, :test do

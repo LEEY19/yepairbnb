@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   
     if params[:search].present?
       params[:pet_presence_list] = "No" if !params[:pet_presence_list].present?
-      @listings = Listing.search(params[:search], params[:pet_presence_list]) 
+      @listings = Listing.searchh(params[:search], params[:pet_presence_list]) 
     else
       @listings = Listing.all.order('created_at DESC')
     end

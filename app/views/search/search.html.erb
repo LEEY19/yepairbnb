@@ -1,0 +1,21 @@
+
+<% @final_relevant.each_slice(3) do |listings| %>
+  <div class="row">
+    <% listings.each do |listing| %>
+
+      <div class="col-md-4">
+        <div class="listing">
+          <div class="image_wrapper">
+            <%= link_to listing do %>
+
+              <%= image_tag(listing.listingphotos.sample.image.url(:indexdisplay)) %>
+            <% end %>
+          </div>
+          <h2><%= link_to listing.title, listing %></h2>
+          <button class='btn btn-primary bookbtn'>Book Now</button>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

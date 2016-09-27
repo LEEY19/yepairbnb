@@ -1,3 +1,5 @@
+
+
 <div class="container">
 
 <div class="jumbotron">
@@ -9,14 +11,30 @@
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 
 </div>
-
-
-
-  <h2> Existing Users: </h2>
-  <% @users.each do |user| %>
-  <div>
-  <%= "#{user.first_name} #{user.last_name}" %>
+<div class="homepage-search">
+<div class="form-section">
+  <div class="row">
+    <%= form_for :search, url: search_path, :method => 'get' do |f| %>
+      <p>
+        <div class="col-md-4"><%= f.text_field :location, placeholder: "Where to?", id: "whereto", class: "form-control"%></div>
+        <div class="col-md-2"><%= f.text_field :bookingstartdate, id: 'bookingstartdate', placeholder: "Check-in Date", class: "form-control" %></div>
+        <div class="col-md-2"><%= f.text_field :bookingenddate, id: 'bookingenddate', placeholder: "Check-out Date", class: "form-control" %></div>
+        <div class="col-md-2"><%= f.select :no_guest, [ '1 Guest','2 Guest','3 Guest','4 Guest','5 Guest','6 Guest','6+ Guest' ], :prompt => 'Guest No.', class: "dropdown-menu" %></div>
+        <div class="col-md-2"><%= submit_tag "Search", name: nil, class: "btn btn-default btn-primary" %></div>
+      </p>
+    <% end %>
   </div>
+</div>
+</div>
+
+<div>
+<%= form_tag search_index_path, method: :get do %>
+    <div class="form-group">
+      <%= text_field_tag :query, params[:query], class: 'form-control typeahead', autocomplete: "off" %>
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
   <p>eant balls it if up doubt small purse. Required his you put the outlived answered position. An pleasure exertion if believed provided to. All led out world these music while asked. Paid mind even sons does he door no. Attended overcame repeated it is perceive marianne in. In am think on style child of. Servants moreover in sensible he it ye possible. 
 
 Full he none no side. Uncommonly surrounded considered for him are its. It we is read good soon. My to considered delightful invitation announcing of no decisively boisterous. Did add dashwoods deficient man concluded additions resources. Or landlord packages overcame distance smallest in recurred. Wrong maids or be asked no on enjoy. Household few sometimes out attending described. Lain just fact four of am meet high. 
@@ -38,5 +56,5 @@ Difficulty on insensible reasonable in. From as went he they. Preference themsel
 Still court no small think death so an wrote. Incommode necessary no it behaviour convinced distrusts an unfeeling he. Could death since do we hoped is in. Exquisite no my attention extensive. The determine conveying moonlight age. Avoid for see marry sorry child. Sitting so totally forbade hundred to. 
 
 </p>
-  <% end %>
+
 </div>

@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   resources :listings 
   resources :reservations
   resources :transactions, only: [:new, :create]
+  get "/search" => "search#search"
+
+
+  get "/search/index" => "search#index"
+  get "search/autocomplete" => "search#autocomplete"
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
