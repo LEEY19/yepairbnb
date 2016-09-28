@@ -8,6 +8,16 @@ class ListingsController < ApplicationController
       @listings = Listing.searchh(params[:search], params[:pet_presence_list]) 
     else
       @listings = Listing.all.order('created_at DESC')
+      @hashs = {}
+      @listings.each do |listing|
+        reserved_dates = []
+        listing.reservations.each do |reservation|
+          
+          reserved_dates << [*(reservation.start..reservation.end)]
+          @hashs[:"#{listing.id}"] = reserved_dates.flatten
+        end
+      end
+    gon.hashs = @hashs
     end
 
     if params[:search].present?

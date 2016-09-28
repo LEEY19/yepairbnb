@@ -12,7 +12,9 @@
             <% end %>
           </div>
           <h2><%= link_to listing.title, listing %></h2>
-          <button class='btn btn-primary bookbtn'>Book Now</button>
+
+          
+          <input type="button" class='btn btn-primary bookbtn checkavailabledates' value="Check Availabe Dates" name="<%= listing.id %>">
 
         </div>
       </div>
