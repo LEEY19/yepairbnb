@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
   def create
     @listing = Listing.find(params[:listing_id])
     @reservation = @listing.reservations.new(user_id: current_user.id, start: Date.parse(reservation_params[:start]), end: Date.parse(reservation_params[:end]))
-    @charge = (@reservation.start..@reservation.end).count * @listing.price
+    @charge = (@reservation.start...@reservation.end).count * @listing.price
     if @reservation.valid?
       new_hash = reservation_params.merge!(listing_id: @listing.id, charge: @charge)
       redirect_to new_transaction_path(new_hash)
