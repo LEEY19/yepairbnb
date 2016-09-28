@@ -3,7 +3,7 @@ $(document).ready(function() {
   var global = [1];
 
   $(document).on("focus",".checkavailabledates", function() {
-    
+    debugger;
     global[0] = (this.name);
 
       var dateFormat = "mm/dd/yy";
