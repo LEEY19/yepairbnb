@@ -71,6 +71,7 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+    @listing.reservations.destroy_all
     @listing.destroy
     redirect_to root_path, notice: "Your listing is successfully deleted"
   end

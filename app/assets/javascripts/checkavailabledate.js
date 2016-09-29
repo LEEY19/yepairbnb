@@ -3,7 +3,7 @@ $(document).ready(function() {
   var global = [1];
 
   $(document).on("focus",".checkavailabledates", function() {
-    debugger;
+
     global[0] = (this.name);
 
       var dateFormat = "mm/dd/yy";
@@ -20,7 +20,12 @@ $(document).ready(function() {
   });
 
   function DisableSpecificDates(date) {
+      if (typeof gon.hashs[global[0]] === 'undefined') {
+        var disableddates = [];
+      }
+      else {
       var disableddates = gon.hashs[global[0]];
+      };
       var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 
       return [disableddates.indexOf(string) == -1];
