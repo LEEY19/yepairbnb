@@ -6,7 +6,6 @@ class UsersController < Clearance::UsersController
 
     if @user.save
       sign_in @user
-      @users = User.all
       redirect_to welcome_home_url
     else
       render template: "users/new"
