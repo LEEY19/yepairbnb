@@ -1,10 +1,8 @@
-var ready = function() {
+$(document).on("turbolinks:load", function () {
    $("#filterlistingdiv").hide();
 
   $( "#filterlisting" ).click(function() {
     $("#filterlistingdiv").slideToggle();
   });
-};
+});
 
-$(document).ready(ready);
-$(document).on('page:load', ready);

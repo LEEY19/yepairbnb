@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
 
   get 'transactions/new'
 
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  resources :chat_rooms, only: [:new, :create, :show, :index]
   root 'welcome#home'
 
   # Example of regular route:

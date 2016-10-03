@@ -87,4 +87,5 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = { :host => "https://yepairbnb.herokuapp.com/" }
+  config.web_console.whiny_requests = false
 end

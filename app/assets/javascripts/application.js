@@ -11,11 +11,14 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
-//= require jquery_ujs
-//= require jquery-ui
-//= require bootstrap-typeahead-rails
 
+//= require jquery_ujs
+//= require bootstrap-sprockets
+
+//= require jquery-ui
+//= require cable
+//= require bootstrap-typeahead-rails
+//= require turbolinks
 //= require_tree .
 
 // $(function () {
@@ -40,7 +43,12 @@
 
 // });
 
-
+$("#Go").keypress(function(event) {
+   if (event.which == 13) {
+       event.preventDefault();
+       $("form").submit();
+   }
+});
 
 
 
